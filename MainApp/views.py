@@ -39,7 +39,9 @@ def get_item(requset, id):
     for item in items:
         if item['id'] == id:
             text = f"""<h1>Название: {item['name']}</h1> 
-            <p>Количество: {item['quantity']}<p>"""
+            <p>Количество: {item['quantity']}<p>
+            <a href='/items'>Назад </a>
+            """
             return HttpResponse(text)
         
     return HttpResponseNotFound(f"""Товар с {id=} не найден""")
@@ -48,7 +50,7 @@ def get_items(requset):
 
     text = "<h2>Список товаров</h2><ol>"
     for item in items:
-        text += f"<li>Название: {item['name']}</li>"
+        text += f"<li><a href='/item/{item['id']}'>Название: {item['name']}</li>"
     text += "</ol>" 
     return HttpResponse(text)
         
