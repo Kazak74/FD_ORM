@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item page</title>
+</head>
+<body>
+    <h1>Название: {{item.name}}</h1>
+
+    {% if item.quantity == 0 %}
+        <p>Товар отсутсутствует</p>
+    {% else %}
+        <p>Количество: {{item.quantity}}<p>
+    {% endif %}
+
+    <a href='/'>Home </a> / <a href='/items'>Items </a> / <a href='/about'>About </a>
+</body>
+</html>

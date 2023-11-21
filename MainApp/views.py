@@ -33,27 +33,37 @@ def about(request):
         "телефон":"8-923-600-01-02",
         "email":"vasya@mail.ru"
     }
-    text = f"""Имя: <b>{anketa['Имя']}</b><br>
-        Отчество: <b>{anketa['Отчество']}</b><br>
-        Фамилия: <b>{anketa['Фамилия']}</b><br>
-        телефон: <b>{anketa['телефон']}</b><br>
-        email: <b>{anketa['email']}</b><br>
-"""
-    return HttpResponse(text)
+#     text = f"""Имя: <b>{anketa['Имя']}</b><br>
+#         Отчество: <b>{anketa['Отчество']}</b><br>
+#         Фамилия: <b>{anketa['Фамилия']}</b><br>
+#         телефон: <b>{anketa['телефон']}</b><br>
+#         email: <b>{anketa['email']}</b><br>
+# """
+#     return HttpResponse(text)
+    context = {
+            "anketa" : anketa
+        }
+    return render(request, "about.html", context)
 
-def get_item(requset, id):
+def get_item(request, id):
 
     for item in items:
         if item['id'] == id:
-            text = f"""<h1>Название: {item['name']}</h1> 
-            <p>Количество: {item['quantity']}<p>
-            <a href='/items'>Назад </a>
-            """
-            return HttpResponse(text)
-        
+    #         text = f"""<h1>Название: {item['name']}</h1> 
+    #         <p>Количество: {item['quantity']}<p>
+    #         <a href='/items'>Назад </a>
+    #         """
+    #         return HttpResponse(text)            
+            context = {
+                "item" : item
+            }    
+            return render(request, "get_item.html", context)
     return HttpResponseNotFound(f"""Товар с {id=} не найден""")
 
-def get_items(requset):
+    
+    # return render(requset, "get_items.html", context)
+
+def get_items(request):
 
     # text = "<h2>Список товаров</h2><ol>"
     # for item in items:
@@ -64,4 +74,4 @@ def get_items(requset):
     context = {
         "items" : items
     }
-    return render(requset, "get_items.html", context)
+    return render(request, "get_items.html", context)
