@@ -13,9 +13,16 @@ items = [
 # Create your views here.
 
 def home(request):
-    text = """<h1>"Изучаем django День первый"</h1>
-            <strong>Автор</strong>: <i>Иванов И.П.</i>"""
-    return HttpResponse(text)
+    # text = """<h1>"Изучаем django День первый"</h1>
+    #         <strong>Автор</strong>: <i>Иванов И.П.</i>"""
+    # return HttpResponse(text)
+
+    context = {
+        "name": "Петров Николай Иванович",
+        "email": "my_mail@mail.ru"
+    }
+
+    return render(request,'index.html', context)
 
 def about(request):
 
@@ -48,10 +55,13 @@ def get_item(requset, id):
 
 def get_items(requset):
 
-    text = "<h2>Список товаров</h2><ol>"
-    for item in items:
-        text += f"<li><a href='/item/{item['id']}'>Название: {item['name']}</li>"
-    text += "</ol>" 
-    return HttpResponse(text)
-        
-   # return HttpResponseNotFound(f"""Товар с {id=} не найден""")
+    # text = "<h2>Список товаров</h2><ol>"
+    # for item in items:
+    #     text += f"<li><a href='/item/{item['id']}'>Название: {item['name']}</li>"
+    # text += "</ol>" 
+    # return HttpResponse(text)
+
+    context = {
+        "items" : items
+    }
+    return render(requset, "get_items.html", context)
