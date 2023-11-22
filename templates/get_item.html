@@ -7,11 +7,12 @@
 <body>
     <h1>Название: {{item.name}}</h1>
 
-    {% if item.quantity == 0 %}
-        <p>Товар отсутсутствует</p>
+    <!-- {% if item.quantity %}
+        <div>Количество: {{item.quantity}}</div>    
     {% else %}
-        <p>Количество: {{item.quantity}}<p>
-    {% endif %}
+        <div>Товар отсутсутствует</div>
+    {% endif %} -->
+    <div>Количество: {{item.quantity | default:"Товар отсутсутствует на складе"}}</div>
 
     <a href='/'>Home </a> / <a href='/items'>Items </a> / <a href='/about'>About </a>
 </body>
