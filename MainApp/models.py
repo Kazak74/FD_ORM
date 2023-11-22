@@ -7,5 +7,6 @@ class Item(models.Model):
     brand = models.CharField(max_length=100)
     count = models.PositiveIntegerField() 
 
-
+    def __repr__(self):
+        return f"Item(self.name, self.brand, self.count)"
 

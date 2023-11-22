@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Item page</title>
 </head>
+
 <body>
     <h1>Название: {{item.name}}</h1>
 
@@ -12,8 +14,9 @@
     {% else %}
         <div>Товар отсутсутствует</div>
     {% endif %} -->
-    <div>Количество: {{item.quantity | default:"Товар отсутсутствует на складе"}}</div>
+    <div>Количество: {{item.count | default:"Товар отсутсутствует на складе"}}</div>
 
     <a href='/'>Home </a> / <a href='/items'>Items </a> / <a href='/about'>About </a>
 </body>
+
 </html>
