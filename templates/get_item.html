@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Item page</title>
-</head>
+{% block content %}
+<h2>Название: {{item.name}}</h2>
+<div>Бренд: {{item.brand}}</div>
+<div>Количество: {{item.count | default:"Товар отсутсутствует на складе"}}</div>
 
-<body>
-    <h1>Название: {{item.name}}</h1>
-
-    <!-- {% if item.quantity %}
-        <div>Количество: {{item.quantity}}</div>    
-    {% else %}
-        <div>Товар отсутсутствует</div>
-    {% endif %} -->
-    <div>Количество: {{item.count | default:"Товар отсутсутствует на складе"}}</div>
-
-    <a href='/'>Home </a> / <a href='/items'>Items </a> / <a href='/about'>About </a>
-</body>
-
-</html>
+<a href="{% url 'items-list' %}">Назад</a>
+{% endblock %}

@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Start page</title>
-</head>
-<body>
-    <h1>Приветствую</h1> 
-    
-    Меня зовут: <i>{{anketa.Имя}}</i>. <br>
-    Мой email для связи <i>{{anketa.email}}</i>.  <br>
-    
-    <a href='/'>Home </a> / <a href='/items'>Items </a> / <a href='/about'>About </a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="demo">Добрый день</h1>
+
+Меня зовут: <i>{{anketa.Имя}}</i>. <br>
+Мой email для связи <i>{{anketa.email}}</i>. <br>
+
+{% endblock %}
